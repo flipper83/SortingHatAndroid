@@ -69,8 +69,12 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
   // --input_node_names="Mul" \
   // --output_node_names="final_result" \
   // --input_binary=true
-  protected static final int INPUT_SIZE = 224;
-  protected static final int IMAGE_MEAN = 117;
+
+  //protected static final int INPUT_SIZE = 224;
+  //protected static final int IMAGE_MEAN = 117;
+  protected static final int INPUT_SIZE = 299;
+  protected static final int IMAGE_MEAN = 128;
+
 
   private boolean debug = false;
 

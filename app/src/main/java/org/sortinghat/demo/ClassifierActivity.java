@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.util.TypedValue;
+import android.widget.Toast;
 import java.util.List;
 import java.util.Vector;
 import org.tensorflow.demo.R;
@@ -35,13 +36,13 @@ public class ClassifierActivity extends CameraActivity
     implements CameraActivity.PhotoReadyListener {
   private static final Logger LOGGER = new Logger(Log.VERBOSE);
 
-  private static final float IMAGE_STD = 1;
-  private static final String INPUT_NAME = "input";
-  private static final String OUTPUT_NAME = "output";
+  private static final float IMAGE_STD = 128;
+  //private static final float IMAGE_STD = 1;
+  private static final String INPUT_NAME = "Mul";
+  private static final String OUTPUT_NAME = "final_result";
 
-  private static final String MODEL_FILE = "file:///android_asset/tensorflow_inception_graph.pb";
-  private static final String LABEL_FILE =
-      "file:///android_asset/imagenet_comp_graph_label_strings.txt";
+  private static final String MODEL_FILE = "file:///android_asset/retrained_graph_optimized.pb";
+  private static final String LABEL_FILE = "file:///android_asset/retrained_labels.txt";
 
   private Classifier classifier;
 
@@ -89,6 +90,13 @@ public class ClassifierActivity extends CameraActivity
           for (Classifier.Recognition result : results) {
             LOGGER.d(result.getTitle() + " " + result.getConfidence());
           }
+
+          runOnUiThread(new Runnable() {
+            @Override public void run() {
+              Toast.makeText(ClassifierActivity.this, " " + results.get(0).getTitle(),
+                  Toast.LENGTH_LONG).show();
+            }
+          });
         }
 
         requestRender();
