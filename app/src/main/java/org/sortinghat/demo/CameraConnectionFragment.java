@@ -51,6 +51,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -151,6 +152,7 @@ public class CameraConnectionFragment extends Fragment {
   private Size previewSize;
 
   private Button buttonTakePhoto;
+  private ImageButton toggleButton;
 
   private View.OnClickListener takeSnapshotListener;
 
@@ -314,8 +316,8 @@ public class CameraConnectionFragment extends Fragment {
     buttonTakePhoto = (Button) view.findViewById(R.id.bt_shoot);
     buttonTakePhoto.setOnClickListener(takeSnapshotListener);
 
-    Button toggle = (Button) view.findViewById(R.id.bt_toggle);
-    toggle.setOnClickListener(new View.OnClickListener() {
+    toggleButton = (ImageButton) view.findViewById(R.id.bt_toggle);
+    toggleButton.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         toggleFacing();
       }
@@ -594,9 +596,13 @@ public class CameraConnectionFragment extends Fragment {
   public void toggleFacing() {
     if (facingSelected == CameraCharacteristics.LENS_FACING_FRONT) {
       facingSelected = CameraCharacteristics.LENS_FACING_BACK;
+      toggleButton.setImageResource(R.drawable.ic_camera_rear);
     } else {
       facingSelected = CameraCharacteristics.LENS_FACING_FRONT;
+      toggleButton.setImageResource(R.drawable.ic_camera_front);
     }
+
+    toggleButton.invalidate();
 
     closeCamera();
     if (textureView.isAvailable()) {

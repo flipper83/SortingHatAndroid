@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="gap_normal">16dp</dimen>
+  <dimen name="image_avatar">350dp</dimen>
+  <dimen name="gap_big">32dp</dimen>
+</resources>

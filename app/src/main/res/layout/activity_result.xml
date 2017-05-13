@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+  <LinearLayout
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:background="?android:attr/colorPrimary"
+      android:minHeight="?android:attr/actionBarSize"
+      android:orientation="vertical"
+      />
+
+  <ImageButton
+      android:id="@+id/iv_avatar"
+      android:layout_width="@dimen/image_avatar"
+      android:layout_height="@dimen/image_avatar"
+      android:layout_marginTop="45dp"
+      android:layout_below="@+id/toolbar"
+      android:layout_centerHorizontal="true"
+      android:scaleType="fitCenter"
+      />
+
+  <ImageView
+      android:id="@+id/iv_logo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/gryffindor"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="16dp"
+      />
+
+  <TextView
+      android:id="@+id/tv_title_house"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/gap_big"
+      android:gravity="center"
+      android:textAlignment="center"
+      android:textColor="?android:attr/colorAccent"
+      tools:text="house"
+      style="@android:style/TextAppearance.Material.Display1"
+      android:layout_below="@id/iv_avatar"
+      />
+
+  <Button
+      android:id="@+id/bt_try_again"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:text="@string/take_other_photo"
+      style="@android:style/Widget.Material.Button"
+      />
+
+</RelativeLayout>

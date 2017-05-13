@@ -16,6 +16,7 @@
 
 package org.sortinghat.demo;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
@@ -28,6 +29,7 @@ import android.util.TypedValue;
 import android.widget.Toast;
 import java.util.List;
 import java.util.Vector;
+import org.sortinghat.demo.data.storage.ImageProcessedStorage;
 import org.tensorflow.demo.R;
 import org.tensorflow.demo.env.BorderedText;
 import org.tensorflow.demo.env.Logger;
@@ -86,6 +88,10 @@ public class ClassifierActivity extends CameraActivity
 
         cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
 
+        requestRender();
+        ClassifierActivity.super.unlockCamera();
+
+        ImageProcessedStorage.getInstance().store(cropCopyBitmap);
         if (results != null) {
           for (Classifier.Recognition result : results) {
             LOGGER.d(result.getTitle() + " " + result.getConfidence());
@@ -93,14 +99,10 @@ public class ClassifierActivity extends CameraActivity
 
           runOnUiThread(new Runnable() {
             @Override public void run() {
-              Toast.makeText(ClassifierActivity.this, " " + results.get(0).getTitle(),
-                  Toast.LENGTH_LONG).show();
+              ResultActivity.open(ClassifierActivity.this, results.get(0).getTitle());
             }
           });
         }
-
-        requestRender();
-        ClassifierActivity.super.unlockCamera();
       }
     });
   }
@@ -147,5 +149,10 @@ public class ClassifierActivity extends CameraActivity
 
       borderedText.drawLines(canvas, 10, canvas.getHeight() - 10, lines);
     }
+  }
+
+  public static void open(ResultActivity activity) {
+    Intent intent = new Intent(activity, ClassifierActivity.class);
+    activity.startActivity(intent);
   }
 }

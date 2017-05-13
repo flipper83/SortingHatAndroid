@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  Copyright 2016 The TensorFlow Authors. All Rights Reserved.
 
@@ -14,29 +14,35 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.tensorflow.demo">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
 
-    <application android:allowBackup="true"
-        android:debuggable="true"
-        android:label="@string/app_name"
-        android:icon="@drawable/ic_launcher"
-        android:theme="@style/MaterialTheme">
+  <uses-feature android:name="android.hardware.camera"/>
+  <uses-feature android:name="android.hardware.camera.autofocus"/>
 
-        <activity android:name="org.sortinghat.demo.ClassifierActivity"
-                  android:screenOrientation="portrait"
-                  android:label="@string/activity_name_classification">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+  <application
+      android:allowBackup="true"
+      android:debuggable="true"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/MaterialTheme">
+    <activity
+        android:name="org.sortinghat.demo.ClassifierActivity"
+        android:label="@string/activity_name_classification"
+        android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity
+        android:name="org.sortinghat.demo.ResultActivity"
+        android:label="@string/title_activity_result">
+    </activity>
+  </application>
 
 </manifest>

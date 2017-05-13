@@ -31,13 +31,15 @@
       android:background="@color/down_bar"
       android:orientation="horizontal"
       >
-    <Button
+    <ImageButton
         android:id="@+id/bt_toggle"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/shoot_background"
+        android:layout_marginLeft="@dimen/gap_normal"
+        android:src="@drawable/ic_camera_front"
+        android:background="@android:color/transparent"
         />
     <Button
         android:id="@+id/bt_shoot"
