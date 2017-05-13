@@ -1,14 +1,5 @@
-# TensorFlow (1.0.1) Image Classifier Gradle Standalone Port
+# Sorting hat
 
-- Clone the project
-- Import it on Android Studio
-- Run it
-- That's all.
+this project is based in https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android repo.
 
-This project is a way to get started with TensorFlow Image Classifier quickly.
-
-I am not planning to maintain it. If you want an updated version, build it yourself.
-
-(Hints on how to do it on this [blog post][blog-post])
-
-[blog-post]: http://nilhcem.com/android/custom-tensorflow-classifier
+I modified the logic, and I will structure the code to be easy to read and useful for my demo propouses.
